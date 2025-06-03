@@ -23,7 +23,7 @@ This application regularly checks a configured IMAP email inbox for new messages
 2. Install dependencies:
 
    ```bash
-   npm install```
+   npm install
 
 3. Copy the .env file and configure your credentials and endpoints:
 
@@ -41,7 +41,8 @@ CHECK_INTERVAL=10000
 
 Start the application:
 
-node mail_checker.js
+    ```bash
+    node mail_checker.js
 
 The app will check for new emails every CHECK_INTERVAL milliseconds.
 
