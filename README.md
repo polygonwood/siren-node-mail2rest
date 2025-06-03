@@ -26,14 +26,14 @@ This application regularly checks a configured IMAP email inbox for new messages
    npm install
    ```
 
-3. Copy the .env file and configure your credentials and endpoints:
+3. Create the .env file and configure your credentials and endpoints:
 
 ```
 IMAP_USER=your@email.com
 IMAP_PASSWORD=yourpassword
 IMAP_HOST=imap.yourmail.com
 IMAP_PORT=993
-REST_HOST=http://localhost
+REST_HOST=http://restendpointserver
 REST_PORT=5000
 REST_PATH=/receive
 CHECK_INTERVAL=10000
