@@ -17,7 +17,7 @@ const config = {
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-async function  checkMail() {
+async function checkMail() {
     const connection = await imaps.connect({ imap: config.imap });
     await connection.openBox('INBOX');
     const searchCriteria = ['UNSEEN'];
