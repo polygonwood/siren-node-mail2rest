@@ -24,10 +24,11 @@ This application regularly checks a configured IMAP email inbox for new messages
 
    ```bash
    npm install
+   ```
 
 3. Copy the .env file and configure your credentials and endpoints:
 
-
+```
 IMAP_USER=your@email.com
 IMAP_PASSWORD=yourpassword
 IMAP_HOST=imap.yourmail.com
@@ -36,13 +37,15 @@ REST_HOST=http://localhost
 REST_PORT=5000
 REST_PATH=/receive
 CHECK_INTERVAL=10000
+```
 
 ## Usage
 
 Start the application:
 
-    ```bash
-    node mail_checker.js
+   ```bash
+   node mail_checker.js
+   ```
 
 The app will check for new emails every CHECK_INTERVAL milliseconds.
 
