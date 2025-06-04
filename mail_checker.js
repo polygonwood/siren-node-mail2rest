@@ -43,17 +43,21 @@ async function checkMail() {
         //         }
         //     }
         // }
-        if (mail.subject === 'SIREN') {
-            console.log('SIREN mail received, processing...');
+        if (['SIREN', 'SIRENVessel', 'SIRENPosition'].includes(mail.subject)) {
+            console.log(`${mail.subject} mail received, processing...`);
             let csvString = mail.text || mail.html;
-            console.log('CSV String:', csvString);
+            // console.log('CSV String:', csvString);
             if (csvString) {
                 try {
                     const jsonArray = await csv().fromString(csvString);
                     console.log('Parsed JSON Array:', JSON.stringify(jsonArray, null, 2));
                     const restUrl = `${process.env.REST_HOST}:${process.env.REST_PORT}${process.env.REST_PATH}`;
                     console.log('REST URL:', restUrl);
-                    await axios.post(restUrl, jsonArray);
+                    const message = {
+                        subject: mail.subject,
+                        data: jsonArray
+                    }
+                    await axios.post(restUrl, message);
                 } catch (err) {
                     console.error('Error parsing CSV or sending REST:', err);
                 }
